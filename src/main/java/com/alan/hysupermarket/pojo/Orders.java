@@ -4,174 +4,174 @@ import java.util.Date;
 import java.util.List;
 
 public class Orders {
-    private Long ID;
+	private Integer id;
 
-    private String ORDERSCODE;
+	private String orderCode;
 
-    private String ADDRESS;
+	private String address;
 
-    private String POST;
+	private String post;
 
-    private String RECEIVER;
+	private String receiver;
 
-    private String MOBILE;
+	private String mobile;
 
-    private String USERMESSAGE;
+	private String userMessage;
 
-    private Date CREATEDATE;
+	private Date createDate;
 
-    private Date PAYDATE;
+	private Date payDate;
 
-    private Date DELIVERYDATE;
+	private Date deliveryDate;
 
-    private Date CONFIRMDATE;
+	private Date confirmDate;
 
-    private Long UUID;
+	private Integer uid;
 
-    private String STATUS;
+	private String status;
 
-    /*如下是非数据库字段*/
-    private List<OrdersItem> orderItems;
+	/* 如下是非数据库字段 */
+	private List<OrdersItem> orderItems;
 
-    private Users user;
+	private Users user;
 
-    private float total;
+	private float total;
 
-    private int totalNumber;
+	private int totalNumber;
 
-    public List<OrdersItem> getOrderItems() {
-        return orderItems;
-    }
+	public List<OrdersItem> getOrderItems() {
+		return orderItems;
+	}
 
-    public void setOrderItems(List<OrdersItem> orderItems) {
-        this.orderItems = orderItems;
-    }
+	public void setOrderItems(List<OrdersItem> orderItems) {
+		this.orderItems = orderItems;
+	}
 
-    public Users getUser() {
-        return user;
-    }
+	public Users getUser() {
+		return user;
+	}
 
-    public void setUser(Users user) {
-        this.user = user;
-    }
+	public void setUser(Users user) {
+		this.user = user;
+	}
 
-    public float getTotal() {
-        return total;
-    }
+	public float getTotal() {
+		return total;
+	}
 
-    public void setTotal(float total) {
-        this.total = total;
-    }
+	public void setTotal(float total) {
+		this.total = total;
+	}
 
-    public int getTotalNumber() {
-        return totalNumber;
-    }
+	public int getTotalNumber() {
+		return totalNumber;
+	}
 
-    public void setTotalNumber(int totalNumber) {
-        this.totalNumber = totalNumber;
-    }
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getORDERSCODE() {
-        return ORDERSCODE;
-    }
+	public String getOrderCode() {
+		return orderCode;
+	}
 
-    public void setORDERSCODE(String ORDERSCODE) {
-        this.ORDERSCODE = ORDERSCODE == null ? null : ORDERSCODE.trim();
-    }
+	public void setOrderCode(String orderCode) {
+		this.orderCode = orderCode == null ? null : orderCode.trim();
+	}
 
-    public String getADDRESS() {
-        return ADDRESS;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setADDRESS(String ADDRESS) {
-        this.ADDRESS = ADDRESS == null ? null : ADDRESS.trim();
-    }
+	public void setAddress(String address) {
+		this.address = address == null ? null : address.trim();
+	}
 
-    public String getPOST() {
-        return POST;
-    }
+	public String getPost() {
+		return post;
+	}
 
-    public void setPOST(String POST) {
-        this.POST = POST == null ? null : POST.trim();
-    }
+	public void setPost(String post) {
+		this.post = post == null ? null : post.trim();
+	}
 
-    public String getRECEIVER() {
-        return RECEIVER;
-    }
+	public String getReceiver() {
+		return receiver;
+	}
 
-    public void setRECEIVER(String RECEIVER) {
-        this.RECEIVER = RECEIVER == null ? null : RECEIVER.trim();
-    }
+	public void setReceiver(String receiver) {
+		this.receiver = receiver == null ? null : receiver.trim();
+	}
 
-    public String getMOBILE() {
-        return MOBILE;
-    }
+	public String getMobile() {
+		return mobile;
+	}
 
-    public void setMOBILE(String MOBILE) {
-        this.MOBILE = MOBILE == null ? null : MOBILE.trim();
-    }
+	public void setMobile(String mobile) {
+		this.mobile = mobile == null ? null : mobile.trim();
+	}
 
-    public String getUSERMESSAGE() {
-        return USERMESSAGE;
-    }
+	public String getUserMessage() {
+		return userMessage;
+	}
 
-    public void setUSERMESSAGE(String USERMESSAGE) {
-        this.USERMESSAGE = USERMESSAGE == null ? null : USERMESSAGE.trim();
-    }
+	public void setUserMessage(String userMessage) {
+		this.userMessage = userMessage == null ? null : userMessage.trim();
+	}
 
-    public Date getCREATEDATE() {
-        return CREATEDATE;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public void setCREATEDATE(Date CREATEDATE) {
-        this.CREATEDATE = CREATEDATE;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 
-    public Date getPAYDATE() {
-        return PAYDATE;
-    }
+	public Date getPayDate() {
+		return payDate;
+	}
 
-    public void setPAYDATE(Date PAYDATE) {
-        this.PAYDATE = PAYDATE;
-    }
+	public void setPayDate(Date payDate) {
+		this.payDate = payDate;
+	}
 
-    public Date getDELIVERYDATE() {
-        return DELIVERYDATE;
-    }
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
 
-    public void setDELIVERYDATE(Date DELIVERYDATE) {
-        this.DELIVERYDATE = DELIVERYDATE;
-    }
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
 
-    public Date getCONFIRMDATE() {
-        return CONFIRMDATE;
-    }
+	public Date getConfirmDate() {
+		return confirmDate;
+	}
 
-    public void setCONFIRMDATE(Date CONFIRMDATE) {
-        this.CONFIRMDATE = CONFIRMDATE;
-    }
+	public void setConfirmDate(Date confirmDate) {
+		this.confirmDate = confirmDate;
+	}
 
-    public Long getUUID() {
-        return UUID;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUUID(Long UUID) {
-        this.UUID = UUID;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public String getSTATUS() {
-        return STATUS;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setSTATUS(String STATUS) {
-        this.STATUS = STATUS == null ? null : STATUS.trim();
-    }
+	public void setStatus(String status) {
+		this.status = status == null ? null : status.trim();
+	}
 }

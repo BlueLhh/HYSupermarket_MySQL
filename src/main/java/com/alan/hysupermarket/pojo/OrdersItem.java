@@ -1,64 +1,64 @@
 package com.alan.hysupermarket.pojo;
 
 public class OrdersItem {
-    private Long ID;
+	private Integer id;
 
-    private Long PID;
+	private Integer pid;
 
-    private Long OID;
+	private Integer oid;
 
-    private Long UUID;
+	private Integer uid;
 
-    private Long QUANTITY;
+	private Integer number;
 
-    /*非数据库字段*/
-    private Product product;
+	/* 非数据库字段 */
+	private Product product;
 
-    public Product getProduct() {
-        return product;
-    }
+	public Product getProduct() {
+		return product;
+	}
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Long getPID() {
-        return PID;
-    }
+	public Integer getPid() {
+		return pid;
+	}
 
-    public void setPID(Long PID) {
-        this.PID = PID;
-    }
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
 
-    public Long getOID() {
-        return OID;
-    }
+	public Integer getOid() {
+		return oid;
+	}
 
-    public void setOID(Long OID) {
-        this.OID = OID;
-    }
+	public void setOid(Integer oid) {
+		this.oid = oid;
+	}
 
-    public Long getUUID() {
-        return UUID;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUUID(Long UUID) {
-        this.UUID = UUID;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public Long getQUANTITY() {
-        return QUANTITY;
-    }
+	public Integer getNumber() {
+		return number;
+	}
 
-    public void setQUANTITY(Long QUANTITY) {
-        this.QUANTITY = QUANTITY;
-    }
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
 }

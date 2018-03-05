@@ -5,7 +5,7 @@ import com.alan.hysupermarket.pojo.PropertyExample;
 import java.util.List;
 
 public interface PropertyMapper {
-    int deleteByPrimaryKey(Long ID);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Property record);
 
@@ -13,7 +13,7 @@ public interface PropertyMapper {
 
     List<Property> selectByExample(PropertyExample example);
 
-    Property selectByPrimaryKey(Long ID);
+    Property selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Property record);
 

@@ -18,77 +18,78 @@ import java.util.List;
 @Service
 public class OrdersServiceImpl implements IOrdersService {
 
-    @Autowired
-    private OrdersMapper ordersMapper;
+	@Autowired
+	private OrdersMapper ordersMapper;
 
-    @Autowired
-    private IUsersService usersService;
+	@Autowired
+	private IUsersService usersService;
 
-    @Autowired
-    private IOrdersItemService ordersItemService;
+	@Autowired
+	private IOrdersItemService ordersItemService;
 
-    @Override
-    public void add(Orders Orders) {
-        ordersMapper.insert(Orders);
-    }
+	@Override
+	public void add(Orders Orders) {
+		ordersMapper.insert(Orders);
+	}
 
-    @Override
-    @Transactional(propagation = Propagation.REQUIRED, rollbackForClassName = "Exception")
-    public float add(Orders Orders, List<OrdersItem> ois) {
-        float total = 0;
-        add(Orders);
-        if (false) {
-            throw new RuntimeException();
-        }
+	@SuppressWarnings("unused")
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED, rollbackForClassName = "Exception")
+	public float add(Orders Orders, List<OrdersItem> ois) {
+		float total = 0;
+		add(Orders);
+		if (false) {
+			throw new RuntimeException();
+		}
 
-        for (OrdersItem oi : ois) {
-            oi.setOID(Orders.getID());
-            ordersItemService.update(oi);
+		for (OrdersItem oi : ois) {
+			oi.setOid(Orders.getId());
+			ordersItemService.update(oi);
 
-        }
+		}
 
-        return total;
-    }
+		return total;
+	}
 
-    @Override
-    public void delete(long id) {
-        ordersMapper.deleteByPrimaryKey(id);
-    }
+	@Override
+	public void delete(int id) {
+		ordersMapper.deleteByPrimaryKey(id);
+	}
 
-    @Override
-    public void update(Orders Orders) {
-        ordersMapper.updateByPrimaryKeySelective(Orders);
-    }
+	@Override
+	public void update(Orders Orders) {
+		ordersMapper.updateByPrimaryKeySelective(Orders);
+	}
 
-    @Override
-    public Orders get(long id) {
+	@Override
+	public Orders get(int id) {
 
-        return ordersMapper.selectByPrimaryKey(id);
-    }
+		return ordersMapper.selectByPrimaryKey(id);
+	}
 
-    @Override
-    public List<Orders> list() {
-        OrdersExample example = new OrdersExample();
-        example.setOrderByClause("id desc");
-        return ordersMapper.selectByExample(example);
-    }
+	@Override
+	public List<Orders> list() {
+		OrdersExample example = new OrdersExample();
+		example.setOrderByClause("id desc");
+		return ordersMapper.selectByExample(example);
+	}
 
-    @Override
-    public List<Orders> list(long uid, String excludedStatus) {
-        OrdersExample example = new OrdersExample();
-        example.createCriteria().andUUIDEqualTo(uid).andSTATUSNotEqualTo(excludedStatus);
-        example.setOrderByClause("id desc");
-        return ordersMapper.selectByExample(example);
-    }
+	@Override
+	public List<Orders> list(int uid, String excludedStatus) {
+		OrdersExample example = new OrdersExample();
+		example.createCriteria().andUidEqualTo(uid).andStatusNotEqualTo(excludedStatus);
+		example.setOrderByClause("id desc");
+		return ordersMapper.selectByExample(example);
+	}
 
-    public void setUser(List<Orders> os) {
-        for (Orders o : os)
-            setUser(o);
-    }
+	public void setUser(List<Orders> os) {
+		for (Orders o : os)
+			setUser(o);
+	}
 
-    public void setUser(Orders Orders) {
-        long uid = Orders.getUUID();
-        Users u = usersService.get(uid);
-        Orders.setUser(u);
-    }
+	public void setUser(Orders Orders) {
+		int uid = Orders.getUid();
+		Users u = usersService.get(uid);
+		Orders.setUser(u);
+	}
 }

@@ -1,146 +1,147 @@
 package com.alan.hysupermarket.pojo;
 
+import java.util.Date;
 import java.util.List;
 
 public class Product {
-    private Long ID;
+	private Integer id;
 
-    private String NAME;
+	private String name;
 
-    private String SUBTITLE;
+	private String subTitle;
 
-    private Double ORIGNALPRICE;
+	private Float originalPrice;
 
-    private Double PROMOTEPRICE;
+	private Float promotePrice;
 
-    private Long STOCK;
+	private Integer stock;
 
-    private Long CID;
+	private Integer cid;
 
-    private String CREATEDATE;
+	private Date createDate;
 
-    /*非数据库字段*/
-    private Category category;
+	/* 非数据库字段 */
+	private Category category;
 
-    private ProductImage firstProductImage;
+	private ProductImage firstProductImage;
 
-    private List<ProductImage> productSingleImages;
+	private List<ProductImage> productSingleImages;
 
-    private List<ProductImage> productDetailImages;
+	private List<ProductImage> productDetailImages;
 
-    private int saleCount;
+	private int saleCount;
 
-    private int reviewCount;
+	private int reviewCount;
 
-    public Category getCategory() {
-        return category;
-    }
+	public Category getCategory() {
+		return category;
+	}
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-    public ProductImage getFirstProductImage() {
-        return firstProductImage;
-    }
+	public ProductImage getFirstProductImage() {
+		return firstProductImage;
+	}
 
-    public void setFirstProductImage(ProductImage firstProductImage) {
-        this.firstProductImage = firstProductImage;
-    }
+	public void setFirstProductImage(ProductImage firstProductImage) {
+		this.firstProductImage = firstProductImage;
+	}
 
-    public List<ProductImage> getProductSingleImages() {
-        return productSingleImages;
-    }
+	public List<ProductImage> getProductSingleImages() {
+		return productSingleImages;
+	}
 
-    public void setProductSingleImages(List<ProductImage> productSingleImages) {
-        this.productSingleImages = productSingleImages;
-    }
+	public void setProductSingleImages(List<ProductImage> productSingleImages) {
+		this.productSingleImages = productSingleImages;
+	}
 
-    public List<ProductImage> getProductDetailImages() {
-        return productDetailImages;
-    }
+	public List<ProductImage> getProductDetailImages() {
+		return productDetailImages;
+	}
 
-    public void setProductDetailImages(List<ProductImage> productDetailImages) {
-        this.productDetailImages = productDetailImages;
-    }
+	public void setProductDetailImages(List<ProductImage> productDetailImages) {
+		this.productDetailImages = productDetailImages;
+	}
 
-    public int getSaleCount() {
-        return saleCount;
-    }
+	public int getSaleCount() {
+		return saleCount;
+	}
 
-    public void setSaleCount(int saleCount) {
-        this.saleCount = saleCount;
-    }
+	public void setSaleCount(int saleCount) {
+		this.saleCount = saleCount;
+	}
 
-    public int getReviewCount() {
-        return reviewCount;
-    }
+	public int getReviewCount() {
+		return reviewCount;
+	}
 
-    public void setReviewCount(int reviewCount) {
-        this.reviewCount = reviewCount;
-    }
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNAME() {
-        return NAME;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME == null ? null : NAME.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public String getSUBTITLE() {
-        return SUBTITLE;
-    }
+	public String getSubTitle() {
+		return subTitle;
+	}
 
-    public void setSUBTITLE(String SUBTITLE) {
-        this.SUBTITLE = SUBTITLE == null ? null : SUBTITLE.trim();
-    }
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle == null ? null : subTitle.trim();
+	}
 
-    public Double getORIGNALPRICE() {
-        return ORIGNALPRICE;
-    }
+	public Float getOriginalPrice() {
+		return originalPrice;
+	}
 
-    public void setORIGNALPRICE(Double ORIGNALPRICE) {
-        this.ORIGNALPRICE = ORIGNALPRICE;
-    }
+	public void setOriginalPrice(Float originalPrice) {
+		this.originalPrice = originalPrice;
+	}
 
-    public Double getPROMOTEPRICE() {
-        return PROMOTEPRICE;
-    }
+	public Float getPromotePrice() {
+		return promotePrice;
+	}
 
-    public void setPROMOTEPRICE(Double PROMOTEPRICE) {
-        this.PROMOTEPRICE = PROMOTEPRICE;
-    }
+	public void setPromotePrice(Float promotePrice) {
+		this.promotePrice = promotePrice;
+	}
 
-    public Long getSTOCK() {
-        return STOCK;
-    }
+	public Integer getStock() {
+		return stock;
+	}
 
-    public void setSTOCK(Long STOCK) {
-        this.STOCK = STOCK;
-    }
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
 
-    public Long getCID() {
-        return CID;
-    }
+	public Integer getCid() {
+		return cid;
+	}
 
-    public void setCID(Long CID) {
-        this.CID = CID;
-    }
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
-    public String getCREATEDATE() {
-        return CREATEDATE;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public void setCREATEDATE(String CREATEDATE) {
-        this.CREATEDATE = CREATEDATE == null ? null : CREATEDATE.trim();
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }

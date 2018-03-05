@@ -8,13 +8,13 @@ import java.util.List;
 public interface IProductService {
     void add(Product product);
 
-    void delete(long id);
+    void delete(int id);
 
     void update(Product product);
 
-    Product get(long id);
+    Product get(int id);
 
-    List<Product> list(long cid);
+    List<Product> list(int cid);
 
     void setFirstProductImage(Product p);
 

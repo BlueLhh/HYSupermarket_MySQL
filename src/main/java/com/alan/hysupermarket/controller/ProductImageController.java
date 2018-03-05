@@ -32,13 +32,13 @@ public class ProductImageController {
 
         productImageService.add(pi);
         // 获取照片的名字
-        String fileName = pi.getID() + ".jpg";
+        String fileName = pi.getId() + ".jpg";
         String imageFolder;
         String imageFolder_small = null;
         String imageFolder_middle = null;
 
         // 判断类型
-        if (IProductImageService.type_single.equals(pi.getTYPE())) {
+        if (IProductImageService.type_single.equals(pi.getType())) {
             imageFolder = session.getServletContext().getRealPath("img/productSingle");
             imageFolder_small = session.getServletContext().getRealPath("img/productSingle_small");
             imageFolder_middle = session.getServletContext().getRealPath("img/productSingle_middle");
@@ -54,7 +54,7 @@ public class ProductImageController {
             BufferedImage img = ImageUtil.change2jpg(f);
             ImageIO.write(img, "jpg", f);
 
-            if (IProductImageService.type_single.equals(pi.getTYPE())) {
+            if (IProductImageService.type_single.equals(pi.getType())) {
                 File f_small = new File(imageFolder_small, fileName);
                 File f_middle = new File(imageFolder_middle, fileName);
                 // 设置照片的大小
@@ -66,19 +66,19 @@ public class ProductImageController {
             e.printStackTrace();
         }
 
-        return "redirect:admin_productImage_list?pid=" + pi.getPID();
+        return "redirect:admin_productImage_list?pid=" + pi.getPid();
     }
 
     @RequestMapping("admin_productImage_delete")
     public String delete(int id, HttpSession session) {
         ProductImage pi = productImageService.get(id);
 
-        String fileName = pi.getID() + ".jpg";
+        String fileName = pi.getId() + ".jpg";
         String imageFolder;
         String imageFolder_small = null;
         String imageFolder_middle = null;
 
-        if (IProductImageService.type_single.equals(pi.getTYPE())) {
+        if (IProductImageService.type_single.equals(pi.getType())) {
             imageFolder = session.getServletContext().getRealPath("img/productSingle");
             imageFolder_small = session.getServletContext().getRealPath("img/productSingle_small");
             imageFolder_middle = session.getServletContext().getRealPath("img/productSingle_middle");
@@ -98,7 +98,7 @@ public class ProductImageController {
 
         productImageService.delete(id);
 
-        return "redirect:admin_productImage_list?pid=" + pi.getPID();
+        return "redirect:admin_productImage_list?pid=" + pi.getPid();
     }
 
     @RequestMapping("admin_productImage_list")

@@ -5,7 +5,7 @@ import com.alan.hysupermarket.pojo.ReviewExample;
 import java.util.List;
 
 public interface ReviewMapper {
-    int deleteByPrimaryKey(Long ID);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Review record);
 
@@ -13,7 +13,7 @@ public interface ReviewMapper {
 
     List<Review> selectByExample(ReviewExample example);
 
-    Review selectByPrimaryKey(Long ID);
+    Review selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Review record);
 

@@ -20,7 +20,7 @@ public interface IUsersService {
      *
      * @param id
      */
-    public void delete(long id);
+    public void delete(int id);
 
     /**
      * 更改一个用户的信息
@@ -35,7 +35,7 @@ public interface IUsersService {
      * @param id
      * @return 返回一个用户信息
      */
-    public Users get(long id);
+    public Users get(int id);
 
     /**
      * 查询全部用户的信息

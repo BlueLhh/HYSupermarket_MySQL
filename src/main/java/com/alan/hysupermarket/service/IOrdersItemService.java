@@ -9,11 +9,11 @@ import java.util.List;
 public interface IOrdersItemService {
     void add(OrdersItem OrdersItem);
 
-    void delete(long id);
+    void delete(int id);
 
     void update(OrdersItem OrdersItem);
 
-    OrdersItem get(long id);
+    OrdersItem get(int id);
 
     List<OrdersItem> list();
 
@@ -21,7 +21,7 @@ public interface IOrdersItemService {
 
     void fill(Orders Orders);
 
-    int getSaleCount(long pid);
+    int getSaleCount(int pid);
 
-    List<OrdersItem> listByUser(long uid);
+    List<OrdersItem> listByUser(int uid);
 }

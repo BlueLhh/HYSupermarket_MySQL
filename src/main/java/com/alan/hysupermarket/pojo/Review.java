@@ -3,64 +3,64 @@ package com.alan.hysupermarket.pojo;
 import java.util.Date;
 
 public class Review {
-    private Long ID;
+	private Integer id;
 
-    private String CONTENT;
+	private String content;
 
-    private Long UUID;
+	private Integer uid;
 
-    private Long PID;
+	private Integer pid;
 
-    private Date CREATEDATE;
+	private Date createDate;
 
-    /*非数据库字段*/
-    private Users users;
+	/* 非数据库字段 */
+	private Users user;
 
-    public Users getUsers() {
-        return users;
-    }
+	public Users getUser() {
+		return user;
+	}
 
-    public void setUsers(Users users) {
-        this.users = users;
-    }
+	public void setUser(Users user) {
+		this.user = user;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getCONTENT() {
-        return CONTENT;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setCONTENT(String CONTENT) {
-        this.CONTENT = CONTENT == null ? null : CONTENT.trim();
-    }
+	public void setContent(String content) {
+		this.content = content == null ? null : content.trim();
+	}
 
-    public Long getUUID() {
-        return UUID;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUUID(Long UUID) {
-        this.UUID = UUID;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public Long getPID() {
-        return PID;
-    }
+	public Integer getPid() {
+		return pid;
+	}
 
-    public void setPID(Long PID) {
-        this.PID = PID;
-    }
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
 
-    public Date getCREATEDATE() {
-        return CREATEDATE;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public void setCREATEDATE(Date CREATEDATE) {
-        this.CREATEDATE = CREATEDATE;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
 }

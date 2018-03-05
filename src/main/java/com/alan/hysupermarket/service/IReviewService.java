@@ -8,14 +8,14 @@ public interface IReviewService {
 
     public void add(Review review);
 
-    public void delete(long id);
+    public void delete(int id);
 
     public void update(Review review);
 
-    public Review get(long id);
+    public Review get(int id);
 
-    public List<Review> list(long pid);
+    public List<Review> list(int pid);
 
-    public int getCount(long pid);
+    public int getCount(int pid);
 
 }

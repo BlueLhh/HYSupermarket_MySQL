@@ -1,44 +1,44 @@
 package com.alan.hysupermarket.pojo;
 
 public class Property {
-    private Long ID;
+	private Integer id;
 
-    private Long CID;
+	private Integer cid;
 
-    private String NAME;
+	private String name;
 
-    /*非数据库字段*/
-    private Category  category;
+	/* 非数据库字段 */
+	private Category category;
 
-    public Category getCategory() {
-        return category;
-    }
+	public Category getCategory() {
+		return category;
+	}
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Long getCID() {
-        return CID;
-    }
+	public Integer getCid() {
+		return cid;
+	}
 
-    public void setCID(Long CID) {
-        this.CID = CID;
-    }
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 
-    public String getNAME() {
-        return NAME;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME == null ? null : NAME.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 }

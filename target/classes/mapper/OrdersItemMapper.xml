@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alan.hysupermarket.mapper.OrdersItemMapper">
   <resultMap id="BaseResultMap" type="com.alan.hysupermarket.pojo.OrdersItem">
-    <id column="ID" jdbcType="DECIMAL" property="ID" />
-    <result column="PID" jdbcType="DECIMAL" property="PID" />
-    <result column="OID" jdbcType="DECIMAL" property="OID" />
-    <result column="UUID" jdbcType="DECIMAL" property="UUID" />
-    <result column="QUANTITY" jdbcType="DECIMAL" property="QUANTITY" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="oid" jdbcType="INTEGER" property="oid" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="number" jdbcType="INTEGER" property="number" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -38,7 +38,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, PID, OID, UUID, QUANTITY
+    id, pid, oid, uid, number
   </sql>
   <select id="selectByExample" parameterType="com.alan.hysupermarket.pojo.OrdersItemExample" resultMap="BaseResultMap">
     select
@@ -47,7 +47,7 @@
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from ORDERSITEM
+    from orderitem
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -55,77 +55,77 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from ORDERSITEM
-    where ID = #{ID,jdbcType=DECIMAL}
+    from orderitem
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from ORDERSITEM
-    where ID = #{ID,jdbcType=DECIMAL}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from orderitem
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.OrdersItem" useGeneratedKeys="true">
-    insert into ORDERSITEM (PID, OID, UUID, 
-      QUANTITY)
-    values (#{PID,jdbcType=DECIMAL}, #{OID,jdbcType=DECIMAL}, #{UUID,jdbcType=DECIMAL}, 
-      #{QUANTITY,jdbcType=DECIMAL})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.OrdersItem" useGeneratedKeys="true">
+    insert into orderitem (pid, oid, uid, 
+      number)
+    values (#{pid,jdbcType=INTEGER}, #{oid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, 
+      #{number,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.OrdersItem" useGeneratedKeys="true">
-    insert into ORDERSITEM
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.OrdersItem" useGeneratedKeys="true">
+    insert into orderitem
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="PID != null">
-        PID,
+      <if test="pid != null">
+        pid,
       </if>
-      <if test="OID != null">
-        OID,
+      <if test="oid != null">
+        oid,
       </if>
-      <if test="UUID != null">
-        UUID,
+      <if test="uid != null">
+        uid,
       </if>
-      <if test="QUANTITY != null">
-        QUANTITY,
+      <if test="number != null">
+        number,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="PID != null">
-        #{PID,jdbcType=DECIMAL},
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
       </if>
-      <if test="OID != null">
-        #{OID,jdbcType=DECIMAL},
+      <if test="oid != null">
+        #{oid,jdbcType=INTEGER},
       </if>
-      <if test="UUID != null">
-        #{UUID,jdbcType=DECIMAL},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
-      <if test="QUANTITY != null">
-        #{QUANTITY,jdbcType=DECIMAL},
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alan.hysupermarket.pojo.OrdersItem">
-    update ORDERSITEM
+    update orderitem
     <set>
-      <if test="PID != null">
-        PID = #{PID,jdbcType=DECIMAL},
+      <if test="pid != null">
+        pid = #{pid,jdbcType=INTEGER},
       </if>
-      <if test="OID != null">
-        OID = #{OID,jdbcType=DECIMAL},
+      <if test="oid != null">
+        oid = #{oid,jdbcType=INTEGER},
       </if>
-      <if test="UUID != null">
-        UUID = #{UUID,jdbcType=DECIMAL},
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
       </if>
-      <if test="QUANTITY != null">
-        QUANTITY = #{QUANTITY,jdbcType=DECIMAL},
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
       </if>
     </set>
-    where ID = #{ID,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.alan.hysupermarket.pojo.OrdersItem">
-    update ORDERSITEM
-    set PID = #{PID,jdbcType=DECIMAL},
-      OID = #{OID,jdbcType=DECIMAL},
-      UUID = #{UUID,jdbcType=DECIMAL},
-      QUANTITY = #{QUANTITY,jdbcType=DECIMAL}
-    where ID = #{ID,jdbcType=DECIMAL}
+    update orderitem
+    set pid = #{pid,jdbcType=INTEGER},
+      oid = #{oid,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

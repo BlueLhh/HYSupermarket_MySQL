@@ -5,11 +5,3 @@
 <%@include file="../include/fore/header.jsp"%>
 <%@include file="../include/fore/loginPage.jsp"%>
 <%@include file="../include/fore/footer.jsp"%>
-
-
-
-
-
-	
-	
-	

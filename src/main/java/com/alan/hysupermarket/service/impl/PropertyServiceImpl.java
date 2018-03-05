@@ -21,7 +21,7 @@ public class PropertyServiceImpl implements IPropertyService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         propertyMapper.deleteByPrimaryKey(id);
     }
 
@@ -31,14 +31,14 @@ public class PropertyServiceImpl implements IPropertyService {
     }
 
     @Override
-    public Property get(long id) {
+    public Property get(int id) {
         return propertyMapper.selectByPrimaryKey(id);
     }
 
     @Override
-    public List<Property> list(long cid) {
+    public List<Property> list(int cid) {
         PropertyExample example = new PropertyExample();
-        example.createCriteria().andCIDEqualTo(cid);
+        example.createCriteria().andCidEqualTo(cid);
         example.setOrderByClause("id desc");
         return propertyMapper.selectByExample(example);
     }

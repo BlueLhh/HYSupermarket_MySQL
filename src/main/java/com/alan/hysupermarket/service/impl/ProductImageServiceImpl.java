@@ -21,7 +21,7 @@ public class ProductImageServiceImpl implements IProductImageService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         productImageMapper.deleteByPrimaryKey(id);
     }
 
@@ -31,14 +31,14 @@ public class ProductImageServiceImpl implements IProductImageService {
     }
 
     @Override
-    public ProductImage get(long id) {
+    public ProductImage get(int id) {
         return productImageMapper.selectByPrimaryKey(id);
     }
 
     @Override
-    public List<ProductImage> list(long pid, String type) {
+    public List<ProductImage> list(int pid, String type) {
         ProductImageExample example = new ProductImageExample();
-        example.createCriteria().andPIDEqualTo(pid).andTYPEEqualTo(type);
+        example.createCriteria().andPidEqualTo(pid).andTypeEqualTo(type);
         example.setOrderByClause("id desc");
         return productImageMapper.selectByExample(example);
     }

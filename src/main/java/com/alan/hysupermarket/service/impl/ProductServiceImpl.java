@@ -36,7 +36,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         productMapper.deleteByPrimaryKey(id);
     }
 
@@ -46,7 +46,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public Product get(long id) {
+    public Product get(int id) {
         Product product = productMapper.selectByPrimaryKey(id);
         setFirstProductImage(product);
         setCategory(product);
@@ -59,15 +59,15 @@ public class ProductServiceImpl implements IProductService {
     }
 
     public void setCategory(Product product) {
-        long cid = product.getCID();
+        int cid = product.getCid();
         Category c = categoryService.get(cid);
         product.setCategory(c);
     }
 
     @Override
-    public List<Product> list(long cid) {
+    public List<Product> list(int cid) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andCIDEqualTo(cid);
+        example.createCriteria().andCidEqualTo(cid);
         example.setOrderByClause("id desc");
         List<Product> products = productMapper.selectByExample(example);
         setFirstProductImage(products);
@@ -77,7 +77,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public void setFirstProductImage(Product product) {
-        List<ProductImage> pis = productImageService.list(product.getID(), IProductImageService.type_single);
+        List<ProductImage> pis = productImageService.list(product.getId(), IProductImageService.type_single);
         if (!pis.isEmpty()) {
             ProductImage pi = pis.get(0);
             product.setFirstProductImage(pi);
@@ -93,7 +93,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public void fill(Category category) {
-        List<Product> products = list(category.getID());
+        List<Product> products = list(category.getId());
         category.setProducts(products);
     }
 
@@ -115,10 +115,10 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public void setSaleAndReviewNumber(Product product) {
-        int saleCount = ordersItemService.getSaleCount(product.getID());
+        int saleCount = ordersItemService.getSaleCount(product.getId());
         product.setSaleCount(saleCount);
 
-        int reviewCount = reviewService.getCount(product.getID());
+        int reviewCount = reviewService.getCount(product.getId());
         product.setReviewCount(reviewCount);
     }
 
@@ -132,7 +132,7 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public List<Product> search(String keyword) {
         ProductExample example = new ProductExample();
-        example.createCriteria().andNAMELike("%" + keyword + "%");
+        example.createCriteria().andNameLike("%" + keyword + "%");
         example.setOrderByClause("id desc");
         List<Product> products = productMapper.selectByExample(example);
         setFirstProductImage(products);

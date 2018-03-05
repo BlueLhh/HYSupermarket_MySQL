@@ -8,12 +8,12 @@ public interface IPropertyService {
 
     public void add(Property property);
 
-    public void delete(long id);
+    public void delete(int id);
 
     public void update(Property property);
 
-    public Property get(long id);
+    public Property get(int id);
 
-    public List<Property> list(long cid);
+    public List<Property> list(int cid);
 
 }

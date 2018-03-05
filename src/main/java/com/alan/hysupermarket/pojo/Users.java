@@ -1,33 +1,33 @@
 package com.alan.hysupermarket.pojo;
 
 public class Users {
-    private Long ID;
+	private Integer id;
 
-    private String NAME;
+	private String name;
 
-    private String PASSWORD;
+	private String password;
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNAME() {
-        return NAME;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME == null ? null : NAME.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public String getPASSWORD() {
-        return PASSWORD;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPASSWORD(String PASSWORD) {
-        this.PASSWORD = PASSWORD == null ? null : PASSWORD.trim();
-    }
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 }

@@ -29,12 +29,12 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(int id) {
         categoryMapper.deleteByPrimaryKey(id);
     }
 
     @Override
-    public Category get(long id) {
+    public Category get(int id) {
         return categoryMapper.selectByPrimaryKey(id);
     }
 
@@ -42,4 +42,5 @@ public class CategoryServiceImpl implements ICategoryService {
     public void update(Category category) {
         categoryMapper.updateByPrimaryKeySelective(category);
     }
+	
 }

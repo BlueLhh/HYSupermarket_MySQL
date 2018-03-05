@@ -5,7 +5,7 @@ import com.alan.hysupermarket.pojo.ProductImageExample;
 import java.util.List;
 
 public interface ProductImageMapper {
-    int deleteByPrimaryKey(Long ID);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(ProductImage record);
 
@@ -13,7 +13,7 @@ public interface ProductImageMapper {
 
     List<ProductImage> selectByExample(ProductImageExample example);
 
-    ProductImage selectByPrimaryKey(Long ID);
+    ProductImage selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(ProductImage record);
 

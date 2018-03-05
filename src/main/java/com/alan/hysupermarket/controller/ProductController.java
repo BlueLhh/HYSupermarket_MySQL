@@ -26,20 +26,20 @@ public class ProductController {
     @RequestMapping("admin_product_add")
     public String add(Model model, Product p) {
         productService.add(p);
-        return "redirect:admin_product_list?cid=" + p.getCID();
+        return "redirect:admin_product_list?cid=" + p.getCid();
     }
 
     @RequestMapping("admin_product_delete")
     public String delete(int id) {
         Product p = productService.get(id);
         productService.delete(id);
-        return "redirect:admin_product_list?cid=" + p.getCID();
+        return "redirect:admin_product_list?cid=" + p.getCid();
     }
 
     @RequestMapping("admin_product_edit")
     public String edit(Model model, int id) {
         Product p = productService.get(id);
-        Category c = categoryService.get(p.getCID());
+        Category c = categoryService.get(p.getCid());
         p.setCategory(c);
         model.addAttribute("p", p);
         return "admin/editProduct";
@@ -48,7 +48,7 @@ public class ProductController {
     @RequestMapping("admin_product_update")
     public String update(Product p) {
         productService.update(p);
-        return "redirect:admin_product_list?cid=" + p.getCID();
+        return "redirect:admin_product_list?cid=" + p.getCid();
     }
 
     @RequestMapping("admin_product_list")
@@ -60,7 +60,7 @@ public class ProductController {
 
         int total = (int) new PageInfo<>(ps).getTotal();
         page.setTotal(total);
-        page.setParam("&cid=" + c.getID());
+        page.setParam("&cid=" + c.getId());
 
         model.addAttribute("ps", ps);
         model.addAttribute("c", c);

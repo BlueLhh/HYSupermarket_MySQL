@@ -11,8 +11,8 @@ public interface IPropertyValueService {
 
     public void update(PropertyValue propertyValue);
 
-    public PropertyValue get(long ptid, long pid);
+    public PropertyValue get(int ptid, int pid);
 
-    public List<PropertyValue> list(long pid);
+    public List<PropertyValue> list(int pid);
 
 }

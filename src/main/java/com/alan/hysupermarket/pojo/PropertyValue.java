@@ -1,54 +1,54 @@
 package com.alan.hysupermarket.pojo;
 
 public class PropertyValue {
-    private Long ID;
+	private Integer id;
 
-    private Long PID;
+	private Integer pid;
 
-    private Long PTID;
+	private Integer ptid;
 
-    private String VALUE;
+	private String value;
 
-    /*非数据库字段*/
-    private Property property;
+	/* 非数据库字段 */
+	private Property property;
 
-    public Property getProperty() {
-        return property;
-    }
+	public Property getProperty() {
+		return property;
+	}
 
-    public void setProperty(Property property) {
-        this.property = property;
-    }
+	public void setProperty(Property property) {
+		this.property = property;
+	}
 
-    public Long getID() {
-        return ID;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Long getPID() {
-        return PID;
-    }
+	public Integer getPid() {
+		return pid;
+	}
 
-    public void setPID(Long PID) {
-        this.PID = PID;
-    }
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
 
-    public Long getPTID() {
-        return PTID;
-    }
+	public Integer getPtid() {
+		return ptid;
+	}
 
-    public void setPTID(Long PTID) {
-        this.PTID = PTID;
-    }
+	public void setPtid(Integer ptid) {
+		this.ptid = ptid;
+	}
 
-    public String getVALUE() {
-        return VALUE;
-    }
+	public String getValue() {
+		return value;
+	}
 
-    public void setVALUE(String VALUE) {
-        this.VALUE = VALUE == null ? null : VALUE.trim();
-    }
+	public void setValue(String value) {
+		this.value = value == null ? null : value.trim();
+	}
 }

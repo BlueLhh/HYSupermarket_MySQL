@@ -1,33 +1,33 @@
 package com.alan.hysupermarket.pojo;
 
 public class ProductImage {
-    private Long ID;
+    private Integer id;
 
-    private Long PID;
+    private Integer pid;
 
-    private String TYPE;
+    private String type;
 
-    public Long getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Long getPID() {
-        return PID;
+    public Integer getPid() {
+        return pid;
     }
 
-    public void setPID(Long PID) {
-        this.PID = PID;
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
-    public String getTYPE() {
-        return TYPE;
+    public String getType() {
+        return type;
     }
 
-    public void setTYPE(String TYPE) {
-        this.TYPE = TYPE == null ? null : TYPE.trim();
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
     }
 }

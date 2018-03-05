@@ -16,42 +16,42 @@ import java.util.List;
 @RequestMapping("")
 public class PropertyValueController {
 
-    @Autowired
-    private IPropertyValueService propertyValueService;
+	@Autowired
+	private IPropertyValueService propertyValueService;
 
-    @Autowired
-    private IProductService productService;
+	@Autowired
+	private IProductService productService;
 
-    /**
-     * 修改
-     *
-     * @param model
-     * @param pid
-     * @return
-     */
-    @RequestMapping("admin_propertyValue_edit")
-    public String edit(Model model, int pid) {
+	/**
+	 * 修改
+	 *
+	 * @param model
+	 * @param pid
+	 * @return
+	 */
+	@RequestMapping("admin_propertyValue_edit")
+	public String edit(Model model, int pid) {
 
-        // 获取商品信息
-        Product p = productService.get(pid);
+		// 获取商品信息
+		Product p = productService.get(pid);
 
-        propertyValueService.init(p);
+		propertyValueService.init(p);
 
-        List<PropertyValue> pvs = propertyValueService.list(p.getID());
+		List<PropertyValue> pvs = propertyValueService.list(p.getId());
 
-        model.addAttribute("p", p);
-        model.addAttribute("pvs", pvs);
+		model.addAttribute("p", p);
+		model.addAttribute("pvs", pvs);
 
-        return "admin/editPropertyValue";
-    }
+		return "admin/editPropertyValue";
+	}
 
-    @RequestMapping("admin_propertyValue_update")
-    @ResponseBody
-    public String update(PropertyValue pv) {
+	@RequestMapping("admin_propertyValue_update")
+	@ResponseBody
+	public String update(PropertyValue pv) {
 
-        propertyValueService.update(pv);
+		propertyValueService.update(pv);
 
-        return "success";
-    }
+		return "success";
+	}
 
 }

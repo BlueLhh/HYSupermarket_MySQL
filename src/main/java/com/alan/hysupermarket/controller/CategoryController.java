@@ -41,7 +41,7 @@ public class CategoryController {
     public String add(Category c, HttpSession session, UploadedImageFile uploadedImageFile) throws IOException {
         categoryService.add(c);
         File imageFolder = new File(session.getServletContext().getRealPath("img/category"));
-        File file = new File(imageFolder, c.getID() + ".jpg");
+        File file = new File(imageFolder, c.getId() + ".jpg");
         if (!file.getParentFile().exists())
             file.getParentFile().mkdirs();
         uploadedImageFile.getImage().transferTo(file);
@@ -74,7 +74,7 @@ public class CategoryController {
         MultipartFile image = uploadedImageFile.getImage();
         if (null != image && !image.isEmpty()) {
             File imageFolder = new File(session.getServletContext().getRealPath("img/category"));
-            File file = new File(imageFolder, c.getID() + ".jpg");
+            File file = new File(imageFolder, c.getId() + ".jpg");
             image.transferTo(file);
             BufferedImage img = ImageUtil.change2jpg(file);
             ImageIO.write(img, "jpg", file);

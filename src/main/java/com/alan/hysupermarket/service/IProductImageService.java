@@ -11,12 +11,12 @@ public interface IProductImageService {
 
     void add(ProductImage productImage);
 
-    void delete(long id);
+    void delete(int id);
 
     void update(ProductImage productImage);
 
-    ProductImage get(long id);
+    ProductImage get(int id);
 
-    List<ProductImage> list(long pid, String type);
+    List<ProductImage> list(int pid, String type);
 
 }

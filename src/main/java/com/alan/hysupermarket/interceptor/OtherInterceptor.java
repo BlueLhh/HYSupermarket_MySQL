@@ -62,10 +62,10 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
         int cartTotalItemNumber = 0;
         // 判断用户是否登录
         if (null != user) {
-            List<OrdersItem> ois = ordersItemService.listByUser(user.getID());
+            List<OrdersItem> ois = ordersItemService.listByUser(user.getId());
             for (OrdersItem oi : ois) {
                 // 获取购物车中的数量
-                cartTotalItemNumber += oi.getQUANTITY();
+                cartTotalItemNumber += oi.getNumber();
             }
 
         }

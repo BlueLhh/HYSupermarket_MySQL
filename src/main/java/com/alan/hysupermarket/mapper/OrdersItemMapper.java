@@ -5,7 +5,7 @@ import com.alan.hysupermarket.pojo.OrdersItemExample;
 import java.util.List;
 
 public interface OrdersItemMapper {
-    int deleteByPrimaryKey(Long ID);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(OrdersItem record);
 
@@ -13,7 +13,7 @@ public interface OrdersItemMapper {
 
     List<OrdersItem> selectByExample(OrdersItemExample example);
 
-    OrdersItem selectByPrimaryKey(Long ID);
+    OrdersItem selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(OrdersItem record);
 

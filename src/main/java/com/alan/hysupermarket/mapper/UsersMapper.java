@@ -5,7 +5,7 @@ import com.alan.hysupermarket.pojo.UsersExample;
 import java.util.List;
 
 public interface UsersMapper {
-    int deleteByPrimaryKey(Long ID);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Users record);
 
@@ -13,7 +13,7 @@ public interface UsersMapper {
 
     List<Users> selectByExample(UsersExample example);
 
-    Users selectByPrimaryKey(Long ID);
+    Users selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Users record);
 
