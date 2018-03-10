@@ -69,7 +69,6 @@ public class ForeController {
 	@RequestMapping("forelogin")
 	public String login(@RequestParam("name") String name, @RequestParam("password") String password, Model model,
 			HttpSession session) {
-		System.out.println("============================gogin============================");
 		name = HtmlUtils.htmlEscape(name);
 		Users user = usersService.get(name, password);
 
@@ -182,16 +181,17 @@ public class ForeController {
 	}
 
 	@RequestMapping("forebuyone")
-	public String buyone(int pid, int number, HttpSession session) {
+	public String buyone(int pid, int num, HttpSession session) {
 		Product p = productService.get(pid);
-		int oiid = 0;
 
+		int oiid = 0;
 		Users user = (Users) session.getAttribute("user");
 		boolean found = false;
 		List<OrdersItem> ois = ordersItemService.listByUser(user.getId());
+		// 遍历循环子订单是否有相同的，有的话即增加
 		for (OrdersItem oi : ois) {
 			if (oi.getProduct().getId().intValue() == p.getId().intValue()) {
-				oi.setNumber(oi.getNumber() + number);
+				oi.setNumber(oi.getNumber() + num);
 				ordersItemService.update(oi);
 				found = true;
 				oiid = oi.getId();
@@ -202,11 +202,17 @@ public class ForeController {
 		if (!found) {
 			OrdersItem oi = new OrdersItem();
 			oi.setUid(user.getId());
-			oi.setNumber(number);
+			oi.setNumber(num);
 			oi.setPid(pid);
 			ordersItemService.add(oi);
 			oiid = oi.getId();
 		}
+		// 获取商品的库存-购买的商品数量
+		int stock = p.getStock() - num;
+		// 更新商品的数量
+		p.setStock(stock);
+		// 更新商品的库存
+		productService.update(p);
 		return "redirect:forebuy?oiid=" + oiid;
 	}
 
@@ -251,6 +257,12 @@ public class ForeController {
 			oi.setPid(pid);
 			ordersItemService.add(oi);
 		}
+		// 获取商品的库存-购买的商品数量
+		int stock = p.getStock() - num;
+		// 更新商品的数量
+		p.setStock(stock);
+		// 更新商品的库存
+		productService.update(p);
 		return "success";
 	}
 
@@ -265,6 +277,8 @@ public class ForeController {
 	@RequestMapping("forechangeOrderItem")
 	@ResponseBody
 	public String changeOrderItem(Model model, HttpSession session, int pid, int number) {
+		// 获取商品信息
+		Product p = productService.get(pid);
 		Users user = (Users) session.getAttribute("user");
 		if (null == user)
 			return "fail";
@@ -278,6 +292,12 @@ public class ForeController {
 			}
 
 		}
+		// 获取商品的库存-购买的商品数量
+		int stock = p.getStock() - number;
+		// 更新商品的数量
+		p.setStock(stock);
+		// 更新商品的库存
+		productService.update(p);
 		return "success";
 	}
 

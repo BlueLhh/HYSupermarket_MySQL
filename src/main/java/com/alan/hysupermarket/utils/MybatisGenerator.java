@@ -18,7 +18,8 @@ import java.util.List;
  */
 public class MybatisGenerator {
 
-    public static void main(String[] args) throws Exception {
+    @SuppressWarnings("unused")
+	public static void main(String[] args) throws Exception {
         // 设置为今天的日期 2018-2-3 预防下次启动的时候会覆盖掉之前写好的配置
         String today = "2018-3-4";
 

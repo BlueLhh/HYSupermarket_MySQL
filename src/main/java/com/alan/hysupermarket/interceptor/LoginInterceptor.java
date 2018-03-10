@@ -16,9 +16,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
-    @Autowired
+    @SuppressWarnings("unused")
+	@Autowired
     private ICategoryService categoryService;
-    @Autowired
+    @SuppressWarnings("unused")
+	@Autowired
     private IOrdersItemService ordersItemService;
 
     /**

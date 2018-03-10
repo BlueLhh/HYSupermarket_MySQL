@@ -2,9 +2,6 @@ package com.alan.hysupermarket.test;
 
 import com.alan.hysupermarket.mapper.CategoryMapper;
 import com.alan.hysupermarket.pojo.Category;
-import com.alan.hysupermarket.pojo.CategoryExample;
-
-import java.util.List;
 
 public class OrtherTest {
 
@@ -19,7 +16,8 @@ public class OrtherTest {
 //            System.out.println(category.getNAME=());
 //        }
 
-        Category category = categoryMapper.selectByPrimaryKey(60);
+        @SuppressWarnings("null")
+		Category category = categoryMapper.selectByPrimaryKey(60);
 
         System.out.println(category.getName());
     }

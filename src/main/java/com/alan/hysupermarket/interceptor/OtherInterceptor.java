@@ -59,7 +59,7 @@ public class OtherInterceptor extends HandlerInterceptorAdapter {
 
         /*这里是获取购物车中一共有多少数量*/
         Users user = (Users) session.getAttribute("user");
-        int cartTotalItemNumber = 0;
+        Integer cartTotalItemNumber = 0;
         // 判断用户是否登录
         if (null != user) {
             List<OrdersItem> ois = ordersItemService.listByUser(user.getId());

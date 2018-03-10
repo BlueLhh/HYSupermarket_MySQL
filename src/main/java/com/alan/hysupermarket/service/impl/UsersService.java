@@ -100,7 +100,6 @@ public class UsersService implements IUsersService {
 	 */
 	@Override
 	public Users get(String name, String password) {
-		System.out.println("==============User get==============");
 		UsersExample example = new UsersExample();
 		// 通过用户名和密码查询用户信息
 		example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);

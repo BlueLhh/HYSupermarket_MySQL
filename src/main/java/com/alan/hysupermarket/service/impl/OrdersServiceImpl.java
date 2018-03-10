@@ -45,7 +45,7 @@ public class OrdersServiceImpl implements IOrdersService {
 		for (OrdersItem oi : ois) {
 			oi.setOid(Orders.getId());
 			ordersItemService.update(oi);
-
+			total += oi.getProduct().getPromotePrice() * oi.getNumber();
 		}
 
 		return total;

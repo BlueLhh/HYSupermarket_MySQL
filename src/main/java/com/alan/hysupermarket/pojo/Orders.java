@@ -3,6 +3,8 @@ package com.alan.hysupermarket.pojo;
 import java.util.Date;
 import java.util.List;
 
+import com.alan.hysupermarket.service.IOrdersService;
+
 public class Orders {
 	private Integer id;
 
@@ -38,38 +40,6 @@ public class Orders {
 	private float total;
 
 	private int totalNumber;
-
-	public List<OrdersItem> getOrderItems() {
-		return orderItems;
-	}
-
-	public void setOrderItems(List<OrdersItem> orderItems) {
-		this.orderItems = orderItems;
-	}
-
-	public Users getUser() {
-		return user;
-	}
-
-	public void setUser(Users user) {
-		this.user = user;
-	}
-
-	public float getTotal() {
-		return total;
-	}
-
-	public void setTotal(float total) {
-		this.total = total;
-	}
-
-	public int getTotalNumber() {
-		return totalNumber;
-	}
-
-	public void setTotalNumber(int totalNumber) {
-		this.totalNumber = totalNumber;
-	}
 
 	public Integer getId() {
 		return id;
@@ -173,5 +143,70 @@ public class Orders {
 
 	public void setStatus(String status) {
 		this.status = status == null ? null : status.trim();
+	}
+
+	public List<OrdersItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(List<OrdersItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public static void main(String args[]) {
+		Orders o = new Orders();
+		o.setStatus(IOrdersService.delete);
+		System.out.println(o.getStatusDesc());
+	}
+
+	public String getStatusDesc() {
+		String desc = "未知";
+		switch (status) {
+		case IOrdersService.waitPay:
+			desc = "待付款";
+			break;
+		case IOrdersService.waitDelivery:
+			desc = "待发货";
+			break;
+		case IOrdersService.waitConfirm:
+			desc = "待收货";
+			break;
+		case IOrdersService.waitReview:
+			desc = "等评价";
+			break;
+		case IOrdersService.finish:
+			desc = "完成";
+			break;
+		case IOrdersService.delete:
+			desc = "刪除";
+			break;
+		default:
+			desc = "未知";
+		}
+		return desc;
+	}
+
+	public float getTotal() {
+		return total;
+	}
+
+	public void setTotal(float total) {
+		this.total = total;
+	}
+
+	public int getTotalNumber() {
+		return totalNumber;
+	}
+
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+	}
+
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
 	}
 }
