@@ -6,9 +6,6 @@
 <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<%-- <%
-	String path = request.getContextPath();
-%> --%>
 
 <html>
 
@@ -64,7 +61,7 @@
 		});
 
 		$("div#footer a[href$=#nowhere]").click(function() {
-			alert("模仿天猫的连接，并没有跳转到实际的页面");
+			alert("模仿购物网站的连接，并没有跳转到实际的页面");
 		});
 
 		$("a.wangwanglink").click(function() {
