@@ -25,5 +25,10 @@ public class PageController {
     public String alipay() {
         return "fore/alipay";
     }
+    
+    @RequestMapping("forgetPage")
+    public String forgetPage(){
+    	return "fore/forgetPassword";
+    }
 
 }

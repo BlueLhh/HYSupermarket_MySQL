@@ -110,4 +110,17 @@ public class UsersService implements IUsersService {
 		// 如果存在则取集合的第一个
 		return result.get(0);
 	}
+
+	@Override
+	public String password(String name) {
+		UsersExample example = new UsersExample();
+		// 用于判断用户名是否存在
+		example.createCriteria().andNameEqualTo(name);
+		List<Users> user = usersMapper.selectByExample(example);
+		if (user.isEmpty()) {
+			return null;
+		}
+		// 返回密码
+		return user.get(0).getPassword();
+	}
 }

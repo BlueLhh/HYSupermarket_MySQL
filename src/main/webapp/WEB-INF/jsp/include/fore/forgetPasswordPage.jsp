@@ -11,15 +11,6 @@
         $("div.loginErrorMessageDiv").show();
         </c:if>
 
-        $("form.loginForm").submit(function(){
-            if(0==$("#name").val().length||0==$("#password").val().length){
-                $("span.errorMessage").html("请输入账号密码");
-                $("div.loginErrorMessageDiv").show();
-                return false;
-            }
-            return true;
-        });
-
         $("form.loginForm input").keyup(function(){
             $("div.loginErrorMessageDiv").hide();
         });
@@ -42,7 +33,7 @@
 	<img id="loginBackgroundImg" class="loginBackgroundImg"
 		src="img/site/loginBackground.png">
 
-	<form class="loginForm" action="forelogin" method="post">
+	<form class="loginForm" action="findPassword" method="post">
 		<div id="loginSmallDiv" class="loginSmallDiv">
 			<div class="loginErrorMessageDiv">
 				<div class="alert alert-danger">
@@ -52,30 +43,17 @@
 				</div>
 			</div>
 
-			<div class="login_acount_text">账户登录</div>
+			<div class="login_acount_text">忘记密码</div>
+			<br>
+			<span class="text-danger">请输入您的账号（注册邮箱）</span>
+			<br>
 			<div class="loginInput ">
 				<span class="loginInputIcon "> <span
 					class=" glyphicon glyphicon-user"></span>
-				</span> <input id="name" name="name" placeholder="手机/会员名/邮箱" type="text">
-			</div>
-
-			<div class="loginInput ">
-				<span class="loginInputIcon "> <span
-					class=" glyphicon glyphicon-lock"></span>
-				</span> <input id="password" name="password" type="password"
-					placeholder="密码" type="text">
-			</div>
-			<span class="text-danger">不要输入真实的网购账号和密码</span><br>
-			<br>
-
-
-			<div>
-			<!-- class="notImplementLink" -->
-				<a href="forgetPage">忘记登录密码</a> <a
-					href="registerPage" class="pull-right">免费注册</a>
+				</span> <input id="name" name="name" placeholder="邮箱" type="text">
 			</div>
 			<div style="margin-top: 20px">
-				<button class="btn btn-block redButton" type="submit">登录</button>
+				<button class="btn btn-block redButton" type="submit">提交</button>
 			</div>
 		</div>
 	</form>

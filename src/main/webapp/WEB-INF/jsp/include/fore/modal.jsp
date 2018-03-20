@@ -29,7 +29,7 @@
 				</div>
 				<span class="text-danger">不要输入真实的网购账号和密码</span><br> <br>
 				<div>
-					<a href="#nowhere">忘记登录密码</a> <a href="registerPage"
+					<a href="forgetPage">忘记登录密码</a> <a href="registerPage"
 						class="pull-right">免费注册</a>
 				</div>
 				<div style="margin-top: 20px">
