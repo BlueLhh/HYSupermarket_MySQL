@@ -170,7 +170,7 @@ $(function(){
 
             <div class="productPriceDiv">
                 <div class="gouwujuanDiv"><img height="16px" src="img/site/gouwujuan.png">
-                <span> 全天猫实物商品通用</span>
+                <span> 全鸿雁实物商品通用</span>
                  
                 </div>
                 <div class="originalDiv">

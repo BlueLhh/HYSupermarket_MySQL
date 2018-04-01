@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alan.hysupermarket.mapper.UsersMapper">
   <resultMap id="BaseResultMap" type="com.alan.hysupermarket.pojo.Users">
-    <id column="ID" jdbcType="DECIMAL" property="ID" />
-    <result column="NAME" jdbcType="VARCHAR" property="NAME" />
-    <result column="PASSWORD" jdbcType="VARCHAR" property="PASSWORD" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -36,7 +36,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, NAME, PASSWORD
+    id, name, password
   </sql>
   <select id="selectByExample" parameterType="com.alan.hysupermarket.pojo.UsersExample" resultMap="BaseResultMap">
     select
@@ -45,7 +45,7 @@
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from USERS
+    from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -53,55 +53,55 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from USERS
-    where ID = #{ID,jdbcType=DECIMAL}
+    from user
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from USERS
-    where ID = #{ID,jdbcType=DECIMAL}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.Users" useGeneratedKeys="true">
-    insert into USERS (NAME, PASSWORD)
-    values (#{NAME,jdbcType=VARCHAR}, #{PASSWORD,jdbcType=VARCHAR})
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.Users" useGeneratedKeys="true">
+    insert into user (name, password)
+    values (#{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.Users" useGeneratedKeys="true">
-    insert into USERS
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.Users" useGeneratedKeys="true">
+    insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="NAME != null">
-        NAME,
+      <if test="name != null">
+        name,
       </if>
-      <if test="PASSWORD != null">
-        PASSWORD,
+      <if test="password != null">
+        password,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="NAME != null">
-        #{NAME,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="PASSWORD != null">
-        #{PASSWORD,jdbcType=VARCHAR},
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alan.hysupermarket.pojo.Users">
-    update USERS
+    update user
     <set>
-      <if test="NAME != null">
-        NAME = #{NAME,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="PASSWORD != null">
-        PASSWORD = #{PASSWORD,jdbcType=VARCHAR},
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{ID,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.alan.hysupermarket.pojo.Users">
-    update USERS
-    set NAME = #{NAME,jdbcType=VARCHAR},
-      PASSWORD = #{PASSWORD,jdbcType=VARCHAR}
-    where ID = #{ID,jdbcType=DECIMAL}
+    update user
+    set name = #{name,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

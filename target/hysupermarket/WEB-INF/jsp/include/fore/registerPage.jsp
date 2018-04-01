@@ -55,7 +55,7 @@
 		<table class="registerTable" align="center">
 			<tr>
 				<td  class="registerTip registerTableLeftTD">设置会员名</td>
-				<td></td>
+				<td><span class="text-danger">不要输入真实的网购账号和密码</span><br></td>
 			</tr>
 			<tr>
 				<td class="registerTableLeftTD">登陆名</td>

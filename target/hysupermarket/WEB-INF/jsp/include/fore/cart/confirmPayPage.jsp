@@ -55,7 +55,7 @@
 		<table class="confirmPayOrderDetailTable">
 			<tr>
 				<td>订单编号：</td>
-				<td>${o.orderCode} <img width="23px" src="img/site/confirmOrderTmall.png"></td>
+				<td>${o.orderCode} <!-- <img width="23px" src="img/site/confirmOrderTmall.png"> --></td>
 			</tr>
 			<tr>
 				<td>卖家昵称：</td>

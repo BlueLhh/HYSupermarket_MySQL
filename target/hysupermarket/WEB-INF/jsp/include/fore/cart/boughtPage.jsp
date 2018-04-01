@@ -102,7 +102,7 @@ $(function(){
 					<span>订单号: ${o.orderCode} 
 					</span>
 					</td>
-					<td  colspan="2"><img width="13px" src="img/site/orderItemTmall.png">天猫商场</td>
+					<td  colspan="2"><!-- <img width="13px" src="img/site/orderItemTmall.png"> -->鸿雁商城</td>
 					<td colspan="1">
 						<a class="wangwanglink" href="#nowhere">
 							<div class="orderItemWangWangGif"></div>
@@ -138,14 +138,14 @@ $(function(){
 						</td>
 						<c:if test="${st.count==1}">
 						 
-							<td valign="top" rowspan="${fn:length(o.orderItems)}" class="orderListItemNumberTD orderItemOrderInfoPartTD" width="100px">
+							<td valign="middle" rowspan="${fn:length(o.orderItems)}" class="orderListItemNumberTD orderItemOrderInfoPartTD" width="100px">
 								<span class="orderListItemNumber">${o.totalNumber}</span>
 							</td>
-							<td valign="top" rowspan="${fn:length(o.orderItems)}" width="120px" class="orderListItemProductRealPriceTD orderItemOrderInfoPartTD">
+							<td valign="middle" rowspan="${fn:length(o.orderItems)}" width="120px" class="orderListItemProductRealPriceTD orderItemOrderInfoPartTD">
 								<div class="orderListItemProductRealPrice">￥<fmt:formatNumber  minFractionDigits="2"  maxFractionDigits="2" type="number" value="${o.total}"/></div>
 								<div class="orderListItemPriceWithTransport">(含运费：￥0.00)</div>
 							</td>
-							<td valign="top" rowspan="${fn:length(o.orderItems)}" class="orderListItemButtonTD orderItemOrderInfoPartTD" width="100px">
+							<td valign="middle" rowspan="${fn:length(o.orderItems)}" class="orderListItemButtonTD orderItemOrderInfoPartTD" width="100px">
 								<c:if test="${o.status=='waitConfirm' }">
 									<a href="foreconfirmPay?oid=${o.id}">
 										<button class="orderListItemConfirm">确认收货</button>

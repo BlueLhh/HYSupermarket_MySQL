@@ -3,7 +3,7 @@
 		 pageEncoding="UTF-8" isELIgnored="false"%>
 
 <a href="${contextPath}">
-	<img id="logo" src="img/site/logo.gif" class="logo">
+	<img id="logo" src="img/site/logo.png" class="logo">
 </a>
 
 <form action="foresearch" method="post" >

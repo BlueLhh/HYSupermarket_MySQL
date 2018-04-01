@@ -2,19 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.alan.hysupermarket.mapper.OrdersMapper">
   <resultMap id="BaseResultMap" type="com.alan.hysupermarket.pojo.Orders">
-    <id column="ID" jdbcType="DECIMAL" property="ID" />
-    <result column="ORDERSCODE" jdbcType="VARCHAR" property="ORDERSCODE" />
-    <result column="ADDRESS" jdbcType="VARCHAR" property="ADDRESS" />
-    <result column="POST" jdbcType="VARCHAR" property="POST" />
-    <result column="RECEIVER" jdbcType="VARCHAR" property="RECEIVER" />
-    <result column="MOBILE" jdbcType="VARCHAR" property="MOBILE" />
-    <result column="USERMESSAGE" jdbcType="VARCHAR" property="USERMESSAGE" />
-    <result column="CREATEDATE" jdbcType="TIMESTAMP" property="CREATEDATE" />
-    <result column="PAYDATE" jdbcType="TIMESTAMP" property="PAYDATE" />
-    <result column="DELIVERYDATE" jdbcType="TIMESTAMP" property="DELIVERYDATE" />
-    <result column="CONFIRMDATE" jdbcType="TIMESTAMP" property="CONFIRMDATE" />
-    <result column="UUID" jdbcType="DECIMAL" property="UUID" />
-    <result column="STATUS" jdbcType="VARCHAR" property="STATUS" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderCode" jdbcType="VARCHAR" property="orderCode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="post" jdbcType="VARCHAR" property="post" />
+    <result column="receiver" jdbcType="VARCHAR" property="receiver" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="userMessage" jdbcType="VARCHAR" property="userMessage" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="payDate" jdbcType="TIMESTAMP" property="payDate" />
+    <result column="deliveryDate" jdbcType="TIMESTAMP" property="deliveryDate" />
+    <result column="confirmDate" jdbcType="TIMESTAMP" property="confirmDate" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -46,8 +46,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, ORDERSCODE, ADDRESS, POST, RECEIVER, MOBILE, USERMESSAGE, CREATEDATE, PAYDATE, 
-    DELIVERYDATE, CONFIRMDATE, UUID, STATUS
+    id, orderCode, address, post, receiver, mobile, userMessage, createDate, payDate, 
+    deliveryDate, confirmDate, uid, status
   </sql>
   <select id="selectByExample" parameterType="com.alan.hysupermarket.pojo.OrdersExample" resultMap="BaseResultMap">
     select
@@ -56,7 +56,7 @@
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from ORDERS
+    from order_
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -64,163 +64,163 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from ORDERS
-    where ID = #{ID,jdbcType=DECIMAL}
+    from order_
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from ORDERS
-    where ID = #{ID,jdbcType=DECIMAL}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order_
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.Orders" useGeneratedKeys="true">
-    insert into ORDERS (ORDERSCODE, ADDRESS, POST, 
-      RECEIVER, MOBILE, USERMESSAGE, 
-      CREATEDATE, PAYDATE, DELIVERYDATE, 
-      CONFIRMDATE, UUID, STATUS
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.Orders" useGeneratedKeys="true">
+    insert into order_ (orderCode, address, post, 
+      receiver, mobile, userMessage, 
+      createDate, payDate, deliveryDate, 
+      confirmDate, uid, status
       )
-    values (#{ORDERSCODE,jdbcType=VARCHAR}, #{ADDRESS,jdbcType=VARCHAR}, #{POST,jdbcType=VARCHAR}, 
-      #{RECEIVER,jdbcType=VARCHAR}, #{MOBILE,jdbcType=VARCHAR}, #{USERMESSAGE,jdbcType=VARCHAR}, 
-      #{CREATEDATE,jdbcType=TIMESTAMP}, #{PAYDATE,jdbcType=TIMESTAMP}, #{DELIVERYDATE,jdbcType=TIMESTAMP}, 
-      #{CONFIRMDATE,jdbcType=TIMESTAMP}, #{UUID,jdbcType=DECIMAL}, #{STATUS,jdbcType=VARCHAR}
+    values (#{orderCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, 
+      #{receiver,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{userMessage,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{payDate,jdbcType=TIMESTAMP}, #{deliveryDate,jdbcType=TIMESTAMP}, 
+      #{confirmDate,jdbcType=TIMESTAMP}, #{uid,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="ID" keyProperty="ID" parameterType="com.alan.hysupermarket.pojo.Orders" useGeneratedKeys="true">
-    insert into ORDERS
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.alan.hysupermarket.pojo.Orders" useGeneratedKeys="true">
+    insert into order_
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="ORDERSCODE != null">
-        ORDERSCODE,
+      <if test="orderCode != null">
+        orderCode,
       </if>
-      <if test="ADDRESS != null">
-        ADDRESS,
+      <if test="address != null">
+        address,
       </if>
-      <if test="POST != null">
-        POST,
+      <if test="post != null">
+        post,
       </if>
-      <if test="RECEIVER != null">
-        RECEIVER,
+      <if test="receiver != null">
+        receiver,
       </if>
-      <if test="MOBILE != null">
-        MOBILE,
+      <if test="mobile != null">
+        mobile,
       </if>
-      <if test="USERMESSAGE != null">
-        USERMESSAGE,
+      <if test="userMessage != null">
+        userMessage,
       </if>
-      <if test="CREATEDATE != null">
-        CREATEDATE,
+      <if test="createDate != null">
+        createDate,
       </if>
-      <if test="PAYDATE != null">
-        PAYDATE,
+      <if test="payDate != null">
+        payDate,
       </if>
-      <if test="DELIVERYDATE != null">
-        DELIVERYDATE,
+      <if test="deliveryDate != null">
+        deliveryDate,
       </if>
-      <if test="CONFIRMDATE != null">
-        CONFIRMDATE,
+      <if test="confirmDate != null">
+        confirmDate,
       </if>
-      <if test="UUID != null">
-        UUID,
+      <if test="uid != null">
+        uid,
       </if>
-      <if test="STATUS != null">
-        STATUS,
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="ORDERSCODE != null">
-        #{ORDERSCODE,jdbcType=VARCHAR},
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
       </if>
-      <if test="ADDRESS != null">
-        #{ADDRESS,jdbcType=VARCHAR},
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
       </if>
-      <if test="POST != null">
-        #{POST,jdbcType=VARCHAR},
+      <if test="post != null">
+        #{post,jdbcType=VARCHAR},
       </if>
-      <if test="RECEIVER != null">
-        #{RECEIVER,jdbcType=VARCHAR},
+      <if test="receiver != null">
+        #{receiver,jdbcType=VARCHAR},
       </if>
-      <if test="MOBILE != null">
-        #{MOBILE,jdbcType=VARCHAR},
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="USERMESSAGE != null">
-        #{USERMESSAGE,jdbcType=VARCHAR},
+      <if test="userMessage != null">
+        #{userMessage,jdbcType=VARCHAR},
       </if>
-      <if test="CREATEDATE != null">
-        #{CREATEDATE,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="PAYDATE != null">
-        #{PAYDATE,jdbcType=TIMESTAMP},
+      <if test="payDate != null">
+        #{payDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="DELIVERYDATE != null">
-        #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      <if test="deliveryDate != null">
+        #{deliveryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="CONFIRMDATE != null">
-        #{CONFIRMDATE,jdbcType=TIMESTAMP},
+      <if test="confirmDate != null">
+        #{confirmDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="UUID != null">
-        #{UUID,jdbcType=DECIMAL},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
-      <if test="STATUS != null">
-        #{STATUS,jdbcType=VARCHAR},
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.alan.hysupermarket.pojo.Orders">
-    update ORDERS
+    update order_
     <set>
-      <if test="ORDERSCODE != null">
-        ORDERSCODE = #{ORDERSCODE,jdbcType=VARCHAR},
+      <if test="orderCode != null">
+        orderCode = #{orderCode,jdbcType=VARCHAR},
       </if>
-      <if test="ADDRESS != null">
-        ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
       </if>
-      <if test="POST != null">
-        POST = #{POST,jdbcType=VARCHAR},
+      <if test="post != null">
+        post = #{post,jdbcType=VARCHAR},
       </if>
-      <if test="RECEIVER != null">
-        RECEIVER = #{RECEIVER,jdbcType=VARCHAR},
+      <if test="receiver != null">
+        receiver = #{receiver,jdbcType=VARCHAR},
       </if>
-      <if test="MOBILE != null">
-        MOBILE = #{MOBILE,jdbcType=VARCHAR},
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="USERMESSAGE != null">
-        USERMESSAGE = #{USERMESSAGE,jdbcType=VARCHAR},
+      <if test="userMessage != null">
+        userMessage = #{userMessage,jdbcType=VARCHAR},
       </if>
-      <if test="CREATEDATE != null">
-        CREATEDATE = #{CREATEDATE,jdbcType=TIMESTAMP},
+      <if test="createDate != null">
+        createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="PAYDATE != null">
-        PAYDATE = #{PAYDATE,jdbcType=TIMESTAMP},
+      <if test="payDate != null">
+        payDate = #{payDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="DELIVERYDATE != null">
-        DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP},
+      <if test="deliveryDate != null">
+        deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="CONFIRMDATE != null">
-        CONFIRMDATE = #{CONFIRMDATE,jdbcType=TIMESTAMP},
+      <if test="confirmDate != null">
+        confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="UUID != null">
-        UUID = #{UUID,jdbcType=DECIMAL},
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
       </if>
-      <if test="STATUS != null">
-        STATUS = #{STATUS,jdbcType=VARCHAR},
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
       </if>
     </set>
-    where ID = #{ID,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.alan.hysupermarket.pojo.Orders">
-    update ORDERS
-    set ORDERSCODE = #{ORDERSCODE,jdbcType=VARCHAR},
-      ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
-      POST = #{POST,jdbcType=VARCHAR},
-      RECEIVER = #{RECEIVER,jdbcType=VARCHAR},
-      MOBILE = #{MOBILE,jdbcType=VARCHAR},
-      USERMESSAGE = #{USERMESSAGE,jdbcType=VARCHAR},
-      CREATEDATE = #{CREATEDATE,jdbcType=TIMESTAMP},
-      PAYDATE = #{PAYDATE,jdbcType=TIMESTAMP},
-      DELIVERYDATE = #{DELIVERYDATE,jdbcType=TIMESTAMP},
-      CONFIRMDATE = #{CONFIRMDATE,jdbcType=TIMESTAMP},
-      UUID = #{UUID,jdbcType=DECIMAL},
-      STATUS = #{STATUS,jdbcType=VARCHAR}
-    where ID = #{ID,jdbcType=DECIMAL}
+    update order_
+    set orderCode = #{orderCode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      post = #{post,jdbcType=VARCHAR},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      userMessage = #{userMessage,jdbcType=VARCHAR},
+      createDate = #{createDate,jdbcType=TIMESTAMP},
+      payDate = #{payDate,jdbcType=TIMESTAMP},
+      deliveryDate = #{deliveryDate,jdbcType=TIMESTAMP},
+      confirmDate = #{confirmDate,jdbcType=TIMESTAMP},
+      uid = #{uid,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -14,7 +14,7 @@
 			<li>实付款：<span class="payedInfoPrice">
 			￥<fmt:formatNumber type="number" value="${param.total}" minFractionDigits="2"/>
 			</li>
-			<li>预计08月08日送达	</li>
+			<li>预计三天后收到商品</li>
 		</ul>
 				
 		<div class="paedCheckLinkDiv">
@@ -30,9 +30,7 @@
 	
 	<div class="warningDiv">
 		<img src="img/site/warning.png">
-		<b>安全提醒：</b>下单后，<span class="redColor boldWord">用QQ给您发送链接办理退款的都是骗子！</span>天猫不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！
+		<b>安全提醒：</b>下单后，<span class="redColor boldWord">用QQ给您发送链接办理退款的都是骗子！</span>鸿雁不存在系统升级，订单异常等问题，谨防假冒客服电话诈骗！
 	</div>
-
-	
 
 </div>

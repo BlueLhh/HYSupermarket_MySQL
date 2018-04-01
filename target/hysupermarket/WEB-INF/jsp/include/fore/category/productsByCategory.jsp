@@ -26,7 +26,7 @@
 				 ${fn:substring(p.name, 0, 50)}
 				</a>
 				
-				<a  class="tmallLink" href="foreproduct?pid=${p.id}">天猫专卖</a>
+				<a  class="tmallLink" href="foreproduct?pid=${p.id}">鸿雁专卖</a>
 	
 				<div class="show1 productInfo">
 					<span class="monthDeal ">月成交 <span class="productDealNumber">${p.saleCount}笔</span></span>
