@@ -18,6 +18,8 @@ import org.springframework.web.util.HtmlUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -225,12 +227,6 @@ public class ForeController {
 			ordersItemService.add(oi);
 			oiid = oi.getId();
 		}
-		// 获取商品的库存-购买的商品数量
-		int stock = p.getStock() - num;
-		// 更新商品的数量
-		p.setStock(stock);
-		// 更新商品的库存
-		productService.update(p);
 		return "redirect:forebuy?oiid=" + oiid;
 	}
 
@@ -255,6 +251,9 @@ public class ForeController {
 	@ResponseBody
 	public String addCart(int pid, int num, Model model, HttpSession session) {
 		Product p = productService.get(pid);
+		if (p.getStock() <= 0) {
+			return "fail";
+		}
 		Users user = (Users) session.getAttribute("user");
 		boolean found = false;
 
@@ -275,12 +274,6 @@ public class ForeController {
 			oi.setPid(pid);
 			ordersItemService.add(oi);
 		}
-		// 获取商品的库存-购买的商品数量
-		int stock = p.getStock() - num;
-		// 更新商品的数量
-		p.setStock(stock);
-		// 更新商品的库存
-		productService.update(p);
 		return "success";
 	}
 
@@ -295,8 +288,6 @@ public class ForeController {
 	@RequestMapping("forechangeOrderItem")
 	@ResponseBody
 	public String changeOrderItem(Model model, HttpSession session, int pid, int number) {
-		// 获取商品信息
-		Product p = productService.get(pid);
 		Users user = (Users) session.getAttribute("user");
 		if (null == user)
 			return "fail";
@@ -310,12 +301,6 @@ public class ForeController {
 			}
 
 		}
-		// 获取商品的库存-购买的商品数量
-		int stock = p.getStock() - number;
-		// 更新商品的数量
-		p.setStock(stock);
-		// 更新商品的库存
-		productService.update(p);
 		return "success";
 	}
 
@@ -331,7 +316,8 @@ public class ForeController {
 
 	@SuppressWarnings("unchecked")
 	@RequestMapping("forecreateOrder")
-	public String createOrder(Model model, Orders order, HttpSession session) {
+	public String createOrder(Model model, Orders order, HttpSession session, HttpServletResponse response)
+			throws IOException {
 		Users user = (Users) session.getAttribute("user");
 		String orderCode = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()) + RandomUtils.nextInt(10000);
 		order.setOrderCode(orderCode);
@@ -339,6 +325,26 @@ public class ForeController {
 		order.setUid(user.getId());
 		order.setStatus(IOrdersService.waitPay);
 		List<OrdersItem> ois = (List<OrdersItem>) session.getAttribute("ois");
+		// 生成订单后，库存减少
+		for (OrdersItem ordersItem : ois) {
+			// 获取商品的信息
+			Product p = new Product();
+			p = productService.get(ordersItem.getPid());
+			// 获取商品的库存-购买的商品数量
+			if (p.getStock() >= ordersItem.getNumber()) {
+				int stock = p.getStock() - ordersItem.getNumber();
+				// 更新商品的数量
+				p.setStock(stock);
+				// 更新商品的库存
+				productService.update(p);
+			} else {
+				response.setContentType("text/html;charset=utf-8");
+				response.getWriter().write(
+						"<script>javascript:alert('抱歉，您购买的"+p.getName()+"库存不足！');location.href='/WEB-INF/jsp/fore/buy.jsp'</script>");
+				return "redirect:forebuy?oiid=" + ordersItem.getId();
+			}
+
+		}
 
 		float total = ordersService.add(order, ois);
 		return "redirect:forealipay?oid=" + order.getId() + "&total=" + total;

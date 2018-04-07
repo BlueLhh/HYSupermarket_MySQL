@@ -7,6 +7,13 @@
  
 $(function(){
     var stock = ${p.stock};
+    if(stock <= 0){
+    	$("#buyButton").attr('disabled',true);
+    	$(".buyButton").attr("disabled","disabled");
+        $(".buyButton").css("background-color","lightgray")
+        $(".buyButton").css("border-color","lightgray")
+        $(".buyButton").css("color","black")
+    }
     $(".productNumberSetting").keyup(function(){
         var num= $(".productNumberSetting").val();
         num = parseInt(num);
@@ -57,7 +64,11 @@ $(function(){
                                          
                                     }
                                     else{
-                                         
+                                    	$(".addCartButton").html("库存不足");
+                                    	$(".addCartButton").attr("disabled","disabled");
+                                        $(".addCartButton").css("background-color","lightgray")
+                                        $(".addCartButton").css("border-color","lightgray")
+                                        $(".addCartButton").css("color","black")
                                     }
                                 }
                         );                          
@@ -231,8 +242,8 @@ $(function(){
         </div>    
          
         <div class="buyDiv">
-            <a class="buyLink" href="forebuyone?pid=${p.id}"><button class="buyButton">立即购买</button></a>
-            <a href="#nowhere" class="addCartLink"><button class="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button></a>
+            <a class="buyLink" href="forebuyone?pid=${p.id}"><button id="buyButton" class="buyButton">立即购买</button></a>
+            <a href="#nowhere" class="addCartLink"><button id="addCartButton" class="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button></a>
         </div>
     </div>
      
