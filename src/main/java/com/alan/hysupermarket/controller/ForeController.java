@@ -338,6 +338,7 @@ public class ForeController {
 				// 更新商品的库存
 				productService.update(p);
 			} else {
+				// 给前端提示信息
 				response.setContentType("text/html;charset=utf-8");
 				response.getWriter().write(
 						"<script>javascript:alert('抱歉，您购买的"+p.getName()+"库存不足！');location.href='/WEB-INF/jsp/fore/buy.jsp'</script>");
