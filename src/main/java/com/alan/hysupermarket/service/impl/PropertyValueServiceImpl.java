@@ -30,7 +30,7 @@ public class PropertyValueServiceImpl implements IPropertyValueService {
 			if (null == propertyValue) {
 				propertyValue = new PropertyValue();
 				propertyValue.setPid(product.getId());
-				propertyValue.setPid(property.getId());
+				propertyValue.setPtid(property.getId());
 				propertyValueMapper.insert(propertyValue);
 			}
 		}

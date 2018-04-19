@@ -38,7 +38,6 @@ public class PropertyValueController {
 		propertyValueService.init(p);
 
 		List<PropertyValue> pvs = propertyValueService.list(p.getId());
-
 		model.addAttribute("p", p);
 		model.addAttribute("pvs", pvs);
 
@@ -48,7 +47,6 @@ public class PropertyValueController {
 	@RequestMapping("admin_propertyValue_update")
 	@ResponseBody
 	public String update(PropertyValue pv) {
-
 		propertyValueService.update(pv);
 
 		return "success";
